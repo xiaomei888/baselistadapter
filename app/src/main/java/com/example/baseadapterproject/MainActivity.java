@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView lv_main;
     private List<Bean> mList;
     private PersonAdapter mAdapter;
+    private CommonListAdapter mCommonListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
 //        mAdapter = new PersonAdapter(mList, this);
-        lv_main.setAdapter(new CommonListAdapter<Bean>(mList,MainActivity.this) {
+        mCommonListAdapter = new CommonListAdapter<Bean>(MainActivity.this) {
             @Override
             public void convert(CommonViewHolder viewHolder, Bean bean) {
                 viewHolder.setText(R.id.tv_name,bean.getName())
                         .setText(R.id.tv_address,bean.getAddress())
                         .setText(R.id.tv_age,"年龄：" + bean.getAge());
             }
-        });
+        };
+        mCommonListAdapter.setmDatas(mList);
+        lv_main.setAdapter(mCommonListAdapter);
     }
 }
