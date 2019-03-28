@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
 //        mAdapter = new PersonAdapter(mList, this);
-        mCommonListAdapter = new CommonListAdapter<Bean>(MainActivity.this) {
+        mCommonListAdapter = new CommonListAdapter<Bean>(MainActivity.this,R.layout.item_list) {
             @Override
             public void convert(CommonViewHolder viewHolder, Bean bean) {
                 viewHolder.setText(R.id.tv_name,bean.getName())

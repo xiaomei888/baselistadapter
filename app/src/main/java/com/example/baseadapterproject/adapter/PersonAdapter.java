@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class PersonAdapter extends CommonListAdapter<Bean> {
 
-    public PersonAdapter(List mDatas,Context context) {
-        super(context);
+    public PersonAdapter(List mDatas,Context context,int layoutId) {
+        super(context,layoutId);
         setmDatas(mDatas);
     }
 

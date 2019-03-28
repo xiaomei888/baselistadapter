@@ -18,13 +18,15 @@ public abstract class CommonListAdapter<T> extends BaseAdapter {
     //泛型List
     private List<T> mDatas;
     private Context mContext;
+    private int mLayoutId;
 
     public void setmDatas(List<T> mDatas) {
         this.mDatas = mDatas;
     }
 
-    public CommonListAdapter(Context context) {
+    public CommonListAdapter(Context context,int layoutId) {
         this.mContext = context;
+        this.mLayoutId = layoutId;
     }
 
     @Override
@@ -44,7 +46,7 @@ public abstract class CommonListAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        CommonViewHolder viewHolder = CommonViewHolder.get(mContext, convertView, parent, position, R.layout.item_list);
+        CommonViewHolder viewHolder = CommonViewHolder.get(mContext, convertView, parent, position, mLayoutId);
         T bean = mDatas.get(position);
 
         convert(viewHolder,bean);

@@ -26,9 +26,9 @@ public class CommonViewHolder {
         mConvertView.setTag(this);
     }
 
-    public static CommonViewHolder get(Context mContext, View convertView, ViewGroup parent, int position, int resId) {
+    public static CommonViewHolder get(Context mContext, View convertView, ViewGroup parent, int position, int layoutId) {
         if (convertView == null) {
-            return new CommonViewHolder(mContext, parent, position, resId);
+            return new CommonViewHolder(mContext, parent, position, layoutId);
         } else {
             CommonViewHolder viewHolder = (CommonViewHolder) convertView.getTag();
             viewHolder.mPosition = position;
